@@ -5,7 +5,7 @@
 body {
     margin: 0;
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
     padding: 20px;
 }
 
@@ -16,13 +16,14 @@ main {
     border-radius: 5px;
     /* place the children elements */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .dice-container {
     display: grid;
     grid-template: auto auto / repeat(5, 1fr);
-    gap: 0.8rem 0.8rem; 
+    gap: 0.8rem; 
     /* place the children elements */
     justify-items: center; 
     align-items: center; 
@@ -42,4 +43,22 @@ main {
 .dice-num {
     font-size: 2rem;
     font-family: 'Karla', serif;
+}
+button {
+    background: linear-gradient(to right,#eeaeca ,#94bbe9);
+    border: 0px solid #000;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    padding: 14px 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+button:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+button:active {
+	transform: scale(0.95);
 }
