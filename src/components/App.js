@@ -2,26 +2,37 @@ import React from "react";
 import Dice from "./Dice";
 import { nanoid } from "nanoid";
 
-
 export default function App() {
   const [dices, setDices] = React.useState(allNewDice());
+
+  // Randomize face
+  function random() {
+    // a dice has 6 faces
+    return Math.ceil(Math.random()*6);
+  }
 
   // Generate 10 dices
   function allNewDice() {
     const dices = [];
     while (dices.length < 10) {
       dices.push({
-        value: Math.ceil(Math.random()*6),
+        value: random(),
         isHeld: false,
         id: nanoid()
-      }); // 6 faces
+      });
     }
     return dices;
   }
 
   function roll() {
-    setDices(allNewDice());
-    console.log({dices});
+    setDices(oldDices => oldDices.map(oldDice => {
+      return oldDice.isHeld ? 
+        oldDice : 
+        {
+          ...oldDice,
+          value: random()
+        };
+    }));
   }
 
   function holdDice(id) {
