@@ -48,6 +48,10 @@ export default function App() {
   return (
     <div className="container">
       <main>
+        <h1 className="title">Tenzies</h1>
+        <h2>Get all dices with the same value !</h2>
+        <p className="instructions">Click each dice to freeze it at its current value between rolls. <br />
+        Roll until all dices are the same.</p>
         <div className="dice-container">
           {diceElements}
         </div>

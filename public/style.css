@@ -7,6 +7,7 @@ body {
     background: rgb(238,174,202);
     background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
     padding: 20px;
+    font-family: 'Karla', serif;
 }
 .container {
     height: 100vh;
@@ -18,10 +19,12 @@ body {
 
 main {
     background-color: #F5F5F5;
-    height: 400px;
+    height: fit-content;
     min-width: fit-content;
     width: 70%;
+    padding: 2rem;
     border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
     /* place the children elements */
     display: flex;
     flex-direction: column;
@@ -49,7 +52,6 @@ main {
 }
 .dice-num {
     font-size: 2rem;
-    font-family: 'Karla', serif;
 }
 button {
     background: linear-gradient(to right,#eeaeca ,#94bbe9);
@@ -68,4 +70,17 @@ button:hover {
 }
 button:active {
 	transform: scale(0.95);
+}
+/* TEXTS */
+h1 {
+    color: #94bbe9;
+    font-size: 3rem;
+    margin-bottom: 0rem;
+}
+h1 + h2 {
+    margin-top: 0rem;
+}
+.instructions {
+    text-align: center;
+    margin-bottom: 1rem;
 }
