@@ -9,7 +9,10 @@ export default function App() {
   function allNewDice() {
     const dices = [];
     while (dices.length < 10) {
-      dices.push(Math.ceil(Math.random()*6)); // 6 faces
+      dices.push({
+        value: Math.ceil(Math.random()*6),
+        isHeld: false
+      }); // 6 faces
     }
     return dices;
   }
@@ -19,15 +22,17 @@ export default function App() {
     console.log({dices});
   }
 
-  const diceElements = dices.map(dice => <Dice value={dice}/>);
+  const diceElements = dices.map(dice => <Dice value={dice.value} />);
   // TODO: generate a unique key later
 
   return (
-    <main>
-      <div className="dice-container">
-        {diceElements}
-      </div>
-      <button onClick={roll}>Roll</button>
-    </main>
+    <div className="container">
+      <main>
+        <div className="dice-container">
+          {diceElements}
+        </div>
+        <button onClick={roll}>Roll</button>
+      </main>
+    </div>
   );
 }
