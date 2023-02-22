@@ -1,5 +1,6 @@
 import React from "react";
 import Dice from "./Dice";
+import { nanoid } from "nanoid";
 
 
 export default function App() {
@@ -11,7 +12,8 @@ export default function App() {
     while (dices.length < 10) {
       dices.push({
         value: Math.ceil(Math.random()*6),
-        isHeld: false
+        isHeld: false,
+        id: nanoid()
       }); // 6 faces
     }
     return dices;
@@ -22,8 +24,15 @@ export default function App() {
     console.log({dices});
   }
 
-  const diceElements = dices.map(dice => <Dice value={dice.value} />);
-  // TODO: generate a unique key later
+  function holdDice(id) {
+    setDices(oldDices => oldDices.map(oldDice => {
+      return oldDice.id === id ?
+        {...oldDice, isHeld: !oldDice.isHeld} :
+        oldDice;
+    }));
+  }
+
+  const diceElements = dices.map(dice => <Dice value={dice.value} key={dice.id} isHeld={dice.isHeld} holdDice={() => holdDice(dice.id)} />);
 
   return (
     <div className="container">
