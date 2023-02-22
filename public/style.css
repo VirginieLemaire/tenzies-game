@@ -4,7 +4,8 @@
 
 body {
     margin: 0;
-    background-color: #0B2434;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     padding: 20px;
 }
 
@@ -13,4 +14,32 @@ main {
     height: 400px;
     max-width: 800px;
     border-radius: 5px;
+    /* place the children elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dice-container {
+    display: grid;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap: 0.8rem 0.8rem; 
+    /* place the children elements */
+    justify-items: center; 
+    align-items: center; 
+}
+.die-face {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    /* children place */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.die-num {
+    font-size: 2rem;
+    font-family: 'Karla', serif;
 }
