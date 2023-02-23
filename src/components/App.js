@@ -37,16 +37,16 @@ export default function App() {
     }
     return dices;
   }
-
-  function roll() {
-    setDices(oldDices => oldDices.map(oldDice => {
-      return oldDice.isHeld ? 
-        oldDice : 
-        {
-          ...oldDice,
-          value: random()
-        };
-    }));
+  
+  function rollDices() {
+    if (!tenzies) {
+      setDices(oldDices => oldDices.map(oldDice => {
+        return oldDice.isHeld ? oldDice : {...oldDice, value: random()};
+      }));
+    } else {
+      setTenzies(false);
+      setDices(allNewDice());
+    }
   }
 
   function holdDice(id) {
@@ -57,7 +57,14 @@ export default function App() {
     }));
   }
 
-  const diceElements = dices.map(dice => <Dice value={dice.value} key={dice.id} isHeld={dice.isHeld} holdDice={() => holdDice(dice.id)} />);
+  const diceElements = dices.map(dice => (
+    <Dice 
+      value={dice.value} 
+      key={dice.id} 
+      isHeld={dice.isHeld} 
+      holdDice={() => holdDice(dice.id)}
+    />
+  ));
 
   return (
     <div className="container">
@@ -69,7 +76,7 @@ export default function App() {
         <div className="dice-container">
           {diceElements}
         </div>
-        <button onClick={roll}>{tenzies ? "Play again" : "Roll"}</button>
+        <button onClick={rollDices}>{tenzies ? "Play again" : "Roll"}</button>
         { tenzies && <Confetti />}
       </main>
     </div>
