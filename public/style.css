@@ -79,6 +79,7 @@ h1 {
 }
 h1 + h2 {
     margin-top: 0rem;
+    text-align: center;
 }
 .instructions {
     text-align: center;

@@ -4,14 +4,7 @@ The purpose of this game is to get all dices with the same value ;)
 
 Select the dices with the value you want and click roll button to roll unselected dices. Select the dices with this same value and so on untill all dices have the same value 🎲
 
-Example
-
-<p float="left">
-  <img src="./public/images/start.png" width="250" />
-  <img src="./public/images/select1.png" width="250" /> 
-  <img src="./public/images/select2.png" width="250" />
-  <img src="./public/images/end.png" width="250" />
-</p>
+![demo](public/images/Animation.gif)
 
 
 ## How to use it
