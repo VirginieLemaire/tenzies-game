@@ -4,6 +4,19 @@ import { nanoid } from "nanoid";
 
 export default function App() {
   const [dices, setDices] = React.useState(allNewDice());
+  const [tenzies, setTenzies] = React.useState(false);
+
+  React.useEffect(function() {
+    // conditions :
+    // 1- all dices are Held
+    const allDicesAreHeld = (currentValue) => currentValue.isHeld;
+    // 2- all dices have the same value
+    const allDicesHaveSameValue = (currentValue) => currentValue.value === dices[0].value;
+    // check conditions and update state
+    if (dices.every(allDicesAreHeld) && dices.every(allDicesHaveSameValue)) {
+      setTenzies(true);
+    }
+  }, [dices]);
 
   // Randomize face
   function random() {
@@ -55,7 +68,7 @@ export default function App() {
         <div className="dice-container">
           {diceElements}
         </div>
-        <button onClick={roll}>Roll</button>
+        <button onClick={roll}>{tenzies ? "Reset the game" : "Roll"}</button>
       </main>
     </div>
   );
