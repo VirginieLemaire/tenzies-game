@@ -1,5 +1,7 @@
 # Tenzies game
 
+This is a project from the [Scrimba's learn React course](https://scrimba.com/learn/learnreact). I customized it a little bit and initialized with create-react-app ;) 
+
 The purpose of this game is to get all dices with the same value ;) 
 
 Select the dices with the value you want and click roll button to roll unselected dices. Select the dices with this same value and so on untill all dices have the same value 🎲
@@ -28,6 +30,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
+Not available for now, but if you dowload this repo and want to create tests you can run this script
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
